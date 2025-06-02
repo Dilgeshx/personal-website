@@ -30,7 +30,7 @@ export default function About() {
       <div>
         <h1 style={{ color: "#ffde59", fontSize: "2.3rem", marginBottom: "1.2rem" }}>About Me</h1>
         <p>
-          Hi! I'm <b style={{ color: "#ffde59" }}>Dilgeş Sarıbulak</b>, a student software developer from Turkey.
+          Hi! I&apos;m <b style={{ color: "#ffde59" }}>Dilgeş Sarıbulak</b>, a student software developer from Turkey.
           I love building modern web applications, exploring new technologies, and sharing what I learn with others.
         </p>
         <p>
@@ -38,10 +38,11 @@ export default function About() {
           I enjoy working with <b>React</b>, <b>Next.js</b>, and experimenting with new frameworks and tools.
         </p>
         <p>
-          When I'm not coding, you can find me reading about technology, drawing, or exploring new music.
+          When I&apos;m not coding, you can find me reading about technology, drawing, or exploring new music.
           <br />
           You can always reach out to me via my social links or email!
         </p>
+        <p>I&apos;m a developer and it&apos;s my portfolio.</p>
       </div>
     </div>
   );
