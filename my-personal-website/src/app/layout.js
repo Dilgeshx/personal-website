@@ -8,9 +8,11 @@ export default function Layout() {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <>
-      <Navbar onContactClick={() => setShowPopup(true)} />
-      <HomePage showPopup={showPopup} setShowPopup={setShowPopup} />
-    </>
+    <html lang="tr">
+      <body>
+        <Navbar onContactClick={() => setShowPopup(true)} />
+        <HomePage showPopup={showPopup} setShowPopup={setShowPopup} />
+      </body>
+    </html>
   );
 }

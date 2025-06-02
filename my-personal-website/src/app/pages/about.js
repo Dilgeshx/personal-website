@@ -30,7 +30,7 @@ export default function About() {
       <div>
         <h1 style={{ color: "#ffde59", fontSize: "2.3rem", marginBottom: "1.2rem" }}>About Me</h1>
         <p>
-          Hi! I'm <b style={{ color: "#ffde59" }}>Dilgeş Sarıbulak</b>, a passionate student software developer from Turkey.
+          Hi! I'm <b style={{ color: "#ffde59" }}>Dilgeş Sarıbulak</b>, a student software developer from Turkey.
           I love building modern web applications, exploring new technologies, and sharing what I learn with others.
         </p>
         <p>
