@@ -1,8 +1,11 @@
 "use client";
 import { useState } from "react";
 
-export default function HomePage() {
-  const [showPopup, setShowPopup] = useState(false);
+export default function HomePage({ showPopup, setShowPopup }) {
+  // Eğer prop gelmezse local state kullan (geri uyumluluk için)
+  const [localShowPopup, localSetShowPopup] = useState(false);
+  const popup = typeof showPopup === "boolean" ? showPopup : localShowPopup;
+  const setPopup = setShowPopup || localSetShowPopup;
 
   return (
     <main>
@@ -10,8 +13,8 @@ export default function HomePage() {
         <span className="outline-text">Welcome</span>
       </h1>
       <p style={{ fontSize: "2rem", marginBottom: "2rem", fontWeight: 500 }}>
-        Hi, I'm{" "}
-        <b style={{ color: "#ffde59" }}>Dilgeş Sarıbulak</b> — a passionate
+        Hi, I&apos;m{" "}
+        <b style={{ color: "#ffde59" }}>Dilgeş Sarıbulak</b> — a
         student software developer from Turkey, building modern web experiences.
       </p>
       <button
@@ -30,7 +33,7 @@ export default function HomePage() {
           cursor: "pointer",
           transition: "background 0.2s, color 0.2s, border 0.2s",
         }}
-        onClick={() => setShowPopup(true)}
+        onClick={() => setPopup(true)}
         onMouseOver={(e) => {
           e.currentTarget.style.background = "#ffde59";
           e.currentTarget.style.color = "#222";
@@ -44,7 +47,7 @@ export default function HomePage() {
       >
         Contact Me
       </button>
-      {showPopup && (
+      {popup && (
         <div
           style={{
             position: "fixed",
@@ -58,7 +61,7 @@ export default function HomePage() {
             justifyContent: "center",
             zIndex: 9999,
           }}
-          onClick={() => setShowPopup(false)}
+          onClick={() => setPopup(false)}
         >
           {/* Popup Box */}
           <div
@@ -79,7 +82,7 @@ export default function HomePage() {
           >
             {/* Close Button */}
             <button
-              onClick={() => setShowPopup(false)}
+              onClick={() => setPopup(false)}
               style={{
                 position: "absolute",
                 top: "-32px",

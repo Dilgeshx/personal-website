@@ -1,30 +1,41 @@
 "use client";
 import { useState } from "react";
+import About from "./pages/about"; // Import the About component
 
-export default function Navbar() {
-  const [showProjectsMsg, setShowProjectsMsg] = useState(false);
+export default function Navbar({ onContactClick }) {
+  const [showAbout, setShowAbout] = useState(false);
 
   return (
     <>
       <nav className="navbar">
         <div className="navbar-logo">dilges saribulak</div>
         <ul className="navbar-links">
-          <li><a href="#/">Main</a></li>
+          <li><a href="#/">Theme</a></li>
           <li>
             <a
-              href="#projects"
+              href="#about"
               onClick={(e) => {
                 e.preventDefault();
-                setShowProjectsMsg(true);
+                setShowAbout(true); // Show the About section
               }}
             >
-              Projects
+              About me
             </a>
           </li>
-          <li><a href="#about">About me</a></li>
+          <li>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                onContactClick(); // Popup açılır
+              }}
+            >
+              Contact
+            </a>
+          </li>
         </ul>
       </nav>
-      {showProjectsMsg && (
+      {showAbout && (
         <div
           style={{
             position: "fixed",
@@ -38,25 +49,22 @@ export default function Navbar() {
             justifyContent: "center",
             zIndex: 9999,
           }}
-          onClick={() => setShowProjectsMsg(false)}
+          onClick={() => setShowAbout(false)} // Close the About section when clicking outside
         >
           <div
             style={{
-              background: "rgba(20,20,30,0.96)",
-              color: "#ffe066",
-              padding: "2.2rem 2.5rem",
-              borderRadius: "18px",
-              fontSize: "1.3rem",
-              fontWeight: 500,
-              boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
-              minWidth: "340px",
-              textAlign: "center",
               position: "relative",
+              background: "rgba(20,20,30,0.96)",
+              borderRadius: "18px",
+              padding: "2rem",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
+              maxWidth: "700px",
+              color: "#ffe066",
             }}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
           >
             <button
-              onClick={() => setShowProjectsMsg(false)}
+              onClick={() => setShowAbout(false)}
               style={{
                 position: "absolute",
                 top: "1rem",
@@ -78,19 +86,7 @@ export default function Navbar() {
             >
               ×
             </button>
-            <div>
-              I will share my projects here soon.<br />
-              Until then, you can reach them on my{" "}
-              <a
-                href="https://github.com/dilgeshx"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#69c9ff", textDecoration: "underline" }}
-              >
-                GitHub profile
-              </a>
-              .
-            </div>
+            <About /> 
           </div>
         </div>
       )}
