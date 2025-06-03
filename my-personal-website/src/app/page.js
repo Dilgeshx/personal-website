@@ -230,6 +230,34 @@ export default function HomePage({ showPopup, setShowPopup }) {
                   style={{ width: "64px", height: "64px" }}
                 />
               </a>
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/dilge%C5%9F-sar%C4%B1bulak-876481236/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="LinkedIn"
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100%",
+                  transition: "background 0.2s",
+                }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.background =
+                    "rgba(255,222,89,0.08)")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.background = "transparent")
+                }
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                  alt="LinkedIn"
+                  style={{ width: "64px", height: "64px" }}
+                />
+              </a>
             </div>
           </div>
         </div>
