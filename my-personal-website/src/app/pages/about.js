@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <div style={{
@@ -14,12 +16,12 @@ export default function About() {
       alignItems: "center",
       gap: "2.5rem"
     }}>
-      <img
+      <Image
         src="/profile.jpeg"
         alt="Dilgeş Sarıbulak"
+        width={140}
+        height={140}
         style={{
-          width: "140px",
-          height: "140px",
           borderRadius: "50%",
           objectFit: "cover",
           boxShadow: "0 2px 12px rgba(0,0,0,0.18)",

@@ -9,7 +9,6 @@ export default function Navbar({ onContactClick }) {
   const [showInfo, setShowInfo] = useState(false);
   const [showColorPanel, setShowColorPanel] = useState(false);
 
-  // Renk seçenekleri
   const colorOptions = [
     { name: "Gece Mavisi", color: "#27548A" },
     { name: "Koyu Gri", color: "#232323" },
@@ -19,13 +18,11 @@ export default function Navbar({ onContactClick }) {
     { name: "Mor", color: "#8e44ad" },
   ];
 
-  // Tema butonu: sadece renk panelini açar
   const handleThemeClick = (e) => {
     e.preventDefault();
     setShowColorPanel(true);
   };
 
-  // Renk seçilince arka planı değiştir ve dark moda geç
   const handleColorPick = (color) => {
     setThemeDark(true);
     setShowColorPanel(false);
@@ -39,7 +36,6 @@ export default function Navbar({ onContactClick }) {
     document.body.style.backgroundSize = "cover";
   };
 
-  // Gradyan moduna dön (themeDark=false)
   const handleGradientMode = () => {
     setThemeDark(false);
     setShowColorPanel(false);
@@ -47,7 +43,6 @@ export default function Navbar({ onContactClick }) {
     document.body.style.animationDuration = `${gradientSpeed}s`;
   };
 
-  // Gradyan hızını değiştir
   const handleGradientSpeed = (delta) => {
     const newSpeed = Math.max(2, gradientSpeed + delta);
     setGradientSpeed(newSpeed);
@@ -88,7 +83,6 @@ export default function Navbar({ onContactClick }) {
           </li>
         </ul>
       </nav>
-      {/* Sağ altta info ve kontrol paneli */}
       <div
         style={{
           position: "fixed",
@@ -100,7 +94,6 @@ export default function Navbar({ onContactClick }) {
           zIndex: 10000,
         }}
       >
-        {/* Info Button: Sadece gradyan hız paneli açıkken göster */}
         {!showColorPanel && !themeDark && (
           <div style={{ position: "relative", marginBottom: "0.7rem" }}>
             <button
@@ -147,7 +140,6 @@ export default function Navbar({ onContactClick }) {
             )}
           </div>
         )}
-        {/* Panel: gradyan veya renk */}
         {showColorPanel ? (
           <div
             style={{
