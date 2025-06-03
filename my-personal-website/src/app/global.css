@@ -76,7 +76,6 @@ main {
   font-size: 1.22rem;
 }
 
-/* Navbar stilleri */
 .navbar {
   display: flex;
   align-items: center;
@@ -125,7 +124,6 @@ main {
   text-shadow: 0 2px 8px rgba(255,222,89,0.18);
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;

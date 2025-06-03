@@ -2,7 +2,6 @@
 import { useState } from "react";
 
 export default function HomePage({ showPopup, setShowPopup }) {
-  // Eğer prop gelmezse local state kullan (geri uyumluluk için)
   const [localShowPopup, localSetShowPopup] = useState(false);
   const popup = typeof showPopup === "boolean" ? showPopup : localShowPopup;
   const setPopup = setShowPopup || localSetShowPopup;
@@ -63,7 +62,6 @@ export default function HomePage({ showPopup, setShowPopup }) {
           }}
           onClick={() => setPopup(false)}
         >
-          {/* Popup Box */}
           <div
             style={{
               position: "relative",
@@ -80,13 +78,12 @@ export default function HomePage({ showPopup, setShowPopup }) {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button
               onClick={() => setPopup(false)}
               style={{
                 position: "absolute",
-                top: "-32px",
-                right: "-32px",
+                top: "16px",
+                right: "16px",
                 background: "#222",
                 border: "2px solid #ffde59",
                 color: "#ffde59",
@@ -105,7 +102,6 @@ export default function HomePage({ showPopup, setShowPopup }) {
             >
               ×
             </button>
-            {/* Icon Grid */}
             <div
               style={{
                 display: "flex",
@@ -117,7 +113,6 @@ export default function HomePage({ showPopup, setShowPopup }) {
                 background: "rgba(30,30,40,0.92)",
               }}
             >
-              {/* Instagram */}
               <a
                 href="https://instagram.com/dilgeshx"
                 target="_blank"
@@ -146,7 +141,6 @@ export default function HomePage({ showPopup, setShowPopup }) {
                   style={{ width: "64px", height: "64px" }}
                 />
               </a>
-              {/* GitHub */}
               <a
                 href="https://github.com/dilgeshx"
                 target="_blank"
@@ -175,7 +169,6 @@ export default function HomePage({ showPopup, setShowPopup }) {
                   style={{ width: "64px", height: "64px" }}
                 />
               </a>
-              {/* Twitter */}
               <a
                 href="https://twitter.com/dilgeshx"
                 target="_blank"
@@ -204,7 +197,6 @@ export default function HomePage({ showPopup, setShowPopup }) {
                   style={{ width: "64px", height: "64px" }}
                 />
               </a>
-              {/* Mail */}
               <a
                 href="mailto:dilgesaribulak@gmail.com"
                 title="Mail"
@@ -230,7 +222,6 @@ export default function HomePage({ showPopup, setShowPopup }) {
                   style={{ width: "64px", height: "64px" }}
                 />
               </a>
-              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/dilge%C5%9F-sar%C4%B1bulak-876481236/"
                 target="_blank"
