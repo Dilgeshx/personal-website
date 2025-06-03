@@ -36,7 +36,11 @@ export default function About() {
           I love building modern web applications, exploring new technologies, and sharing what I learn with others.
         </p>
         <p>
-          My main interests are in <b>frontend development</b>, <b>UI/UX design</b>, and <b>creative coding</b>. 
+          I&apos;m currently studying at <b>Gebze Technical University</b>, as an Electronic Engineering student.
+          I identify myself as a <b>Frontend Developer</b>.
+        </p>
+        <p>
+          My main interests are in <b>frontend development</b>, <b>UI/UX design</b>, and <b>creative coding</b>.
           I enjoy working with <b>React</b>, <b>Next.js</b>, and experimenting with new frameworks and tools.
         </p>
         <p>
