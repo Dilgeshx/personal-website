@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function HomePage({ showPopup, setShowPopup }) {
+export default function HomePage({ theme, showPopup, setShowPopup }) {
   const [localShowPopup, localSetShowPopup] = useState(false);
   const popup = typeof showPopup === "boolean" ? showPopup : localShowPopup;
   const setPopup = setShowPopup || localSetShowPopup;
@@ -9,12 +9,21 @@ export default function HomePage({ showPopup, setShowPopup }) {
   return (
     <main>
       <h1>
-        <span className="outline-text">Welcome</span>
+        <span
+          className="outline-text"
+          style={{
+            color: theme === "light" ? "#181818" : undefined,
+          }}
+        >
+          Welcome
+        </span>
       </h1>
       <p style={{ fontSize: "2rem", marginBottom: "2rem", fontWeight: 500 }}>
         Hi, I&apos;m{" "}
-        <b style={{ color: "#ffde59" }}>Dilgeş Sarıbulak</b> — a
-        student software developer from Turkey, building modern web experiences.
+        <b style={{ color: theme === "light" ? "#1a237e" : "#ffde59" }}>
+          Dilgeş Sarıbulak
+        </b>{" "}
+        — a student software developer from Turkey, building modern web experiences.
       </p>
       <button
         style={{

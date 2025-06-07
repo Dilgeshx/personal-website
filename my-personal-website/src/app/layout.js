@@ -5,13 +5,13 @@ import Navbar from './Navbar';
 import HomePage from "./page";
 
 export default function Layout() {
-  const [showPopup, setShowPopup] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   return (
     <html lang="tr">
       <body>
-        <Navbar onContactClick={() => setShowPopup(true)} />
-        <HomePage showPopup={showPopup} setShowPopup={setShowPopup} />
+        <Navbar theme={theme} setTheme={setTheme} />
+        <HomePage theme={theme} />
       </body>
     </html>
   );
