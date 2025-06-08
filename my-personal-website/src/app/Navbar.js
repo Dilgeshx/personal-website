@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
+import { FaSun, FaMoon } from "react-icons/fa";
 import About from "./pages/about";
 
 export default function Navbar({ onContactClick, theme, setTheme }) {
   const [showAbout, setShowAbout] = useState(false);
   const [showNameInfo, setShowNameInfo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showCV, setShowCV] = useState(false);
 
-  // Tema değiştirici fonksiyon
   const handleThemeToggle = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -28,8 +29,16 @@ export default function Navbar({ onContactClick, theme, setTheme }) {
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-logo" style={{ position: "relative" }}>
+      <nav className="navbar" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+        <div
+          className="navbar-logo"
+          style={{
+            position: "relative",
+            textAlign: "left",
+            width: "auto",
+            flex: "0 0 auto"
+          }}
+        >
           <span
             style={{ cursor: "pointer", color: "#ffde59", fontWeight: 900 }}
             onClick={() => setShowNameInfo((v) => !v)}
@@ -62,52 +71,98 @@ export default function Navbar({ onContactClick, theme, setTheme }) {
         <button
           className="navbar-hamburger"
           onClick={() => setMobileMenuOpen((v) => !v)}
-          style={{ display: "none" }}
         >
           ☰
         </button>
-        <ul className={`navbar-links${mobileMenuOpen ? " open" : ""}`}>
+        <ul
+          className={`navbar-links${mobileMenuOpen ? " open" : ""}`}
+          style={{
+            justifyContent: "flex-end",
+            alignItems: "center",
+            width: "auto",
+            textAlign: "right",
+            gap: "1.2rem",
+            display:
+              typeof window !== "undefined" && window.innerWidth <= 700
+                ? mobileMenuOpen
+                  ? "flex"
+                  : "none"
+                : "flex",
+            flex: "0 0 auto"
+          }}
+        >
           <li>
             <button
               onClick={handleThemeToggle}
               style={{
                 background: "none",
-                border: "2px solid #ffde59",
-                color: "#ffde59",
+                border: "none",
+                color: "#fff",
                 borderRadius: "8px",
-                padding: "0.3rem 1.1rem",
+                padding: "0.7rem 1.7rem",
                 fontWeight: "bold",
-                fontSize: "1.1rem",
+                fontSize: "2.2rem",
                 cursor: "pointer",
                 marginRight: "1rem",
-                transition: "background 0.2s, color 0.2s, border 0.2s",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
               }}
               aria-label="Toggle theme"
             >
-              {theme === "light" ? "Light" : "Dark"}
+              {theme === "light" ? (
+                <FaSun color="#fff" size={32} />
+              ) : (
+                <FaMoon color="#fff" size={32} />
+              )}
             </button>
           </li>
           <li>
             <a
               href="#about"
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
                 setShowAbout(true);
+              }}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#fff",
+                borderRadius: "8px",
+                padding: "0.7rem 1.7rem",
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                cursor: "pointer",
+                marginRight: "1rem",
+                transition: "background 0.2s, color 0.2s",
+                display: "inline-block",
+                textDecoration: "none",
+                textAlign: "center"
               }}
             >
               About me
             </a>
           </li>
           <li>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                if (onContactClick) onContactClick();
+            <button
+              onClick={() => setShowCV(true)}
+              style={{
+                background: "none",
+                border: "none",
+                color: "#fff",
+                borderRadius: "8px",
+                padding: "0.7rem 1.7rem",
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                cursor: "pointer",
+                marginRight: "1rem",
+                transition: "background 0.2s, color 0.2s",
+                display: "inline-block",
+                textAlign: "center"
               }}
             >
-              Contact
-            </a>
+              CV
+            </button>
           </li>
         </ul>
       </nav>
@@ -163,6 +218,75 @@ export default function Navbar({ onContactClick, theme, setTheme }) {
               ×
             </button>
             <About />
+          </div>
+        </div>
+      )}
+      {showCV && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0,0,0,0.55)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 10000,
+          }}
+          onClick={() => setShowCV(false)}
+        >
+          <button
+            onClick={() => setShowCV(false)}
+            style={{
+              position: "fixed",
+              top: "2.5vh",
+              right: "2vw",
+              background: "#222",
+              border: "2px solid #ffde59",
+              color: "#ffde59",
+              borderRadius: "50%",
+              width: "40px",
+              height: "40px",
+              fontSize: "1.7rem",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
+              zIndex: 10001,
+            }}
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <div
+            style={{
+              position: "relative",
+              background: "rgba(20,20,30,0.96)",
+              borderRadius: "18px",
+              padding: "1rem",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
+              maxWidth: "95vw",
+              maxHeight: "90vh",
+              width: "700px",
+              height: "80vh",
+              display: "flex",
+              flexDirection: "column",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src="/cv.pdf"
+              title="CV"
+              style={{
+                width: "100%",
+                height: "100%",
+                border: "none",
+                borderRadius: "12px",
+              }}
+            />
           </div>
         </div>
       )}
