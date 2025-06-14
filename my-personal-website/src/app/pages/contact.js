@@ -1,9 +1,9 @@
 export default function Contact() {
   return (
     <div>
-      <h1>İletişim</h1>
+      <h1>Contact</h1>
       <p>
-        Bana ulaşmak için:{" "}
+        To reach me:{" "}
         <a
           href="mailto:dilgesaribulak@gmail.com"
           style={{ color: "#27548A", textDecoration: "underline" }}
